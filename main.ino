@@ -1,5 +1,6 @@
 #include "buttons.h"
 #include "lcd.h"
+#include "pwm.h"
 
 void setup() {
 
