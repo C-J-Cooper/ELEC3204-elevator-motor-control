@@ -4,9 +4,10 @@ void lcdPrintSpeedAndMode(void){
 
   //update the LCD if the speed or mode has changed
   if(desiredSpeed != prevDesiredSpeed || prevMode != mode){
+    lcd.clear();
   	lcd.setCursor(0, 0);
   	lcd.print("Speed=");
-  	lcd.print(desiredSpeed - 50);
+  	lcd.print(desiredSpeed - 127);
   	
   	lcd.setCursor(0, 1);
   	if(mode == 0){

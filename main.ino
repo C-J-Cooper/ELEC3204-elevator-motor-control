@@ -7,6 +7,8 @@ void setup() {
 
   setupButtons();
   setupLcd();
+  setupPwm();
+  updatePwm();
   Serial.begin(9600);
 
 }
@@ -17,9 +19,9 @@ void loop() {
   lcdPrintSpeedAndMode();
 
   // if operating in closed loop control
-  if(mode == 1){
-    closedLoop();
-  }
+  //if(mode == 1){
+    //closedLoop();
+  //}
 
 
 }

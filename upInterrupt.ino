@@ -7,11 +7,12 @@ void upInterrupt(void) {
   // check if the button press was due to noise or 'bounce'
   if(millis() - prevButtonPress > 200){
     
-    if(desiredSpeed + motorStep <= 90){
+    if(desiredSpeed + motorStep <= 230){
       desiredSpeed = desiredSpeed + motorStep;
 	  updatePwm();
     }
-    
+
+    Serial.println("Lit");
     prevButtonPress = millis();
   } 
 } 
