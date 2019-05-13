@@ -7,8 +7,8 @@ void upInterrupt(void) {
   // check if the button press was due to noise or 'bounce'
   if(millis() - prevButtonPress > 200){
     
-    if(motorSpeed + motorStep <= 90){
-      motorSpeed = motorSpeed + motorStep;
+    if(desiredSpeed + motorStep <= 90){
+      desiredSpeed = desiredSpeed + motorStep;
 	  updatePwm();
     }
     

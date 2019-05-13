@@ -10,8 +10,9 @@ void modeInterrupt(void){
 		if(mode == 1){
 			mode = 0;
 		} else{
-			if(motorSpeed < 50){
-				motorSpeed = 50;
+			if(desiredSpeed < 50){
+				desiredSpeed = 50;
+				motorSpeed = desiredSpeed;
 				updatePwm();
 			}
 			mode = 1;
