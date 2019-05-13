@@ -1,14 +1,14 @@
 #ifndef CLOSEDLOOP_H
 #define CLOSEDLOOP_H
 
-// pins used in closed loop feedback
-const int motorFeedbackPin = A0;
+const int motorFeedbackPin = A0; // pin for analog input of motor speed
+const int Kp = 1;               // closed loop proportional feedback gain.
+int motorFeedbackValue = 0; // stores the actual measured speed of the motor
+int targetSpeed = 0;        // stores the target speed the motor should be at
+int speedError = 0;         // error between target and measured
 
-// variable for debouncing the buttons
-unsigned long prevButtonPress = 0;
 
 // functions for closed loop operation
 void closedLoop(void);
-void read(void);
 
 #endif

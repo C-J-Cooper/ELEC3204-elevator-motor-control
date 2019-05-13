@@ -4,12 +4,6 @@
 
 void closedLoop(void){
 
-    int Kp = 1; // closed loop proportional feedback gain.
-
-    int motorFeedbackValue = 0; // stores the actual measured speed of the motor
-    int targetSpeed = 0;        // stores the target speed the motor should be at
-    int speedError = 0;         // error between target and measured
-
     // read the current motor speed
     motorFeedbackValue = analogRead(motorFeedbackPin);
 
@@ -21,7 +15,12 @@ void closedLoop(void){
     }
     speedError = targetSpeed - motorFeedbackValue;
 
-    motorSpeed = motorSpeed + Kp*speedError;
+    if(motorSpeed + Kp*speedError <= 90){
+        motorSpeed = motorSpeed + Kp*speedError;
+        updatePWM();
+    }else{
+        Serial.print("Gain too High!");
+    }
 
 }
 

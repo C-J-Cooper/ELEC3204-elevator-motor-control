@@ -6,7 +6,7 @@ void downInterrupt(void){
   
     if(millis() - prevButtonPress > 200){
     
-	// if in closed loop, cannot go negative
+	// if in closed loop operation
 	if(mode == 1){
 		if(desiredSpeed - desiredSpeed >= 50){
 			desiredSpeed = desiredSpeed - motorStep;
