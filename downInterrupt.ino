@@ -8,11 +8,11 @@ void downInterrupt(void){
     
 	// if in closed loop operation
 	if(mode == 1){
-		if(desiredSpeed - motorStep >= 127){
+		if(desiredSpeed - motorStep >= 50){
 			desiredSpeed = desiredSpeed - motorStep;
 			updatePwm();
 		}
-	}else if(desiredSpeed - motorStep >= 20){
+	}else if(desiredSpeed - motorStep >= 10){
 		desiredSpeed = desiredSpeed - motorStep;
 		updatePwm();
 	}
