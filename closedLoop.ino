@@ -8,7 +8,7 @@ void closedLoop(void){
     motorFeedbackValue = analogRead(motorFeedbackPin);
 
     // get the speed the motor should be at
-    if (motorSpeed > 55){
+    if (motorSpeed > 10){
         targetSpeed = 26*desiredSpeed - 1390;
     } else{
         targetSpeed = 0;
@@ -17,7 +17,7 @@ void closedLoop(void){
 
     if(motorSpeed + Kp*speedError <= 90){
         motorSpeed = motorSpeed + Kp*speedError;
-        //updatePWM();
+        updatePWM();
     }else{
         Serial.print("Gain too High!");
     }

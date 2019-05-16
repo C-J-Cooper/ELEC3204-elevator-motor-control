@@ -1,6 +1,6 @@
 void setupButtons(void){
 
-	const byte upPin = 20;
+	const byte upPin = 3;
 	const byte downPin = 2;
 	const byte modePin = 18;
 	const byte stopPin = 19;
