@@ -5,7 +5,7 @@
 #define PWMB 11
 
 //------------------------- setup routine ----------------------------//
-void setup() {
+int setupPwm() {
   pinMode(PWMA, OUTPUT);          // output PWMA to Q1
   pinMode(PWMB, OUTPUT);          // output PWMB to Q2
 

@@ -2,7 +2,11 @@
 
 int updatePwm(void){
 
-  int temp = (int)pwm;
+  int temp = 0;
+  if(mode == 0){
+    motorSpeed = desiredSpeed;
+    temp = (int)motorSpeed;
+  }
   temp = constrain(temp,1,99);
 
   OCR1A = temp; //duty of PWM for pin9 is from output compare register A 

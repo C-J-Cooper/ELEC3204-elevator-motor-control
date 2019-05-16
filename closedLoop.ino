@@ -17,7 +17,7 @@ void closedLoop(void){
 
     if(motorSpeed + Kp*speedError <= 90){
         motorSpeed = motorSpeed + Kp*speedError;
-        updatePWM();
+        updatePwm();
     }else{
         Serial.print("Gain too High!");
     }
