@@ -12,7 +12,6 @@ void upInterrupt(void) {
 	  updatePwm();
     }
 
-    Serial.println("Lit");
     prevButtonPress = millis();
   } 
 } 
