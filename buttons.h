@@ -7,6 +7,10 @@ int motorSpeed = 50;    // PWM driving the motor. 50 =  no rotation
 int desiredSpeed = 50;  // desired speed input by the user
 int motorStep = 3;		// increment when up/down speed button is pressed
 
+const int UPPER = 80;
+const int LOWER = 20;
+const int STOPPED = 50;
+
 // variable for debouncing the buttons
 unsigned long prevButtonPress = 0;
 
@@ -16,5 +20,7 @@ void upInterrupt(void);
 void downInterrupt(void);
 void modeInterrupt(void);
 void stopInterrupt(void);
+void topInterrupt(void);
+void bottomInterrupt(void);
 
 #endif

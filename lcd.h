@@ -9,7 +9,7 @@ LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
 void setupLcd(void);              // setup LCD
 int prevMode = 0;                 // to check if the mode has changed
-int prevDesiredSpeed = 50;        // variable to check if the speed has changed
+int prevDesiredSpeed = STOPPED;   // variable to check if the speed has changed
 void lcdPrintSpeedAndMode(void);  // prints motor speed and mode to the lcd
 
 #endif

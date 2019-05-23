@@ -5,9 +5,9 @@ int updatePwm(void){
   int temp = 0;
   if(mode == 0){
     motorSpeed = desiredSpeed;
-    temp = (int)motorSpeed;
   }
-  temp = constrain(temp,1,99);
+  temp = (int)motorSpeed;
+  temp = constrain(temp,LOWER,UPPER);
 
   OCR1A = temp; //duty of PWM for pin9 is from output compare register A 
   TCCR1A |= _BV(COM1A1) | _BV(COM1A0); //set output to low level

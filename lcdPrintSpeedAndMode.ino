@@ -7,7 +7,7 @@ void lcdPrintSpeedAndMode(void){
     lcd.clear();
   	lcd.setCursor(0, 0);
   	lcd.print("Speed=");
-  	lcd.print(desiredSpeed - 50);
+  	lcd.print(desiredSpeed - STOPPED);
   	
   	lcd.setCursor(0, 1);
   	if(mode == 0){

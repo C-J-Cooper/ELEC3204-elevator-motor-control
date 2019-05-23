@@ -4,6 +4,8 @@ void setupButtons(void){
 	const byte downPin = 2;
 	const byte modePin = 18;
 	const byte stopPin = 19;
+  const byte topPin = 20;
+  const byte bottomPin = 21;
 
 	pinMode(upPin, INPUT_PULLUP);
 	attachInterrupt(digitalPinToInterrupt(upPin), upInterrupt, FALLING);
@@ -16,5 +18,11 @@ void setupButtons(void){
 	
 	pinMode(stopPin, INPUT_PULLUP);
 	attachInterrupt(digitalPinToInterrupt(stopPin), stopInterrupt, FALLING);
+
+  pinMode(topPin, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(topPin), topInterrupt, FALLING);
+
+  pinMode(bottomPin, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(bottomPin), bottomInterrupt, FALLING);
 
 }

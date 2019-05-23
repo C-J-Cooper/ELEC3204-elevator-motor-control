@@ -5,21 +5,33 @@
 void closedLoop(void){
 
     // read the current motor speed
-    motorFeedbackValue = analogRead(motorFeedbackPin);
+    motorFeedbackValue = readMotorSpeed();
+
+    Serial.print("Motor Speed = ");
+    Serial.println(motorFeedbackValue);
 
     // get the speed the motor should be at
-    if (motorSpeed > 10){
-        targetSpeed = 26*desiredSpeed - 1390;
+    if (motorSpeed > STOPPED+7){  // since motor soes not spin for 50, 53 or 56
+        targetSpeed = 31*desiredSpeed - 1802;
     } else{
         targetSpeed = 0;
     }
     speedError = targetSpeed - motorFeedbackValue;
+    //Serial.print("Speed Error = ");
+    //Serial.println(speedError);
 
-    if(motorSpeed + Kp*speedError <= 90){
-        motorSpeed = motorSpeed + Kp*speedError;
+    int nextSpeed;
+    nextSpeed = (int) motorSpeed + Kp*speedError;
+
+    if(nextSpeed <= UPPER && nextSpeed >= STOPPED){
+        motorSpeed = nextSpeed;
         updatePwm();
     }else{
-        Serial.print("Gain too High!");
+        if(nextSpeed >= UPPER){
+            Serial.println("Too High! Tried to Reach a Speed above UPPER PWM");
+        }else{
+            Serial.println("Too Low! Tried to reach a speed below STOPPED PWM in closed loop");
+        }
     }
 
 }

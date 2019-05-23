@@ -6,7 +6,7 @@ void stopInterrupt(){
   
     if(millis() - prevButtonPress > 200){
 	
-		desiredSpeed = 50;
+		desiredSpeed = STOPPED;
     mode = 0;
 		updatePwm();
 		prevButtonPress = millis();
